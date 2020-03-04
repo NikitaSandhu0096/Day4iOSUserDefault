@@ -10,10 +10,20 @@ import UIKit
 
 class SecondViewController: UIViewController {
 
+    @IBOutlet weak var lblWelcome: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        let ud = UserDefaults.standard
+        let name = ud.string(forKey: "name")
+        if let nm = name{
+            lblWelcome.text = "Welcome \(nm)"
+        }
         // Do any additional setup after loading the view.
+    }
+    @IBAction func btnRemoveClick(_ sender: UIButton) {
+        UserDefaults.standard.removeObject(forKey: "name")
     }
     
 
