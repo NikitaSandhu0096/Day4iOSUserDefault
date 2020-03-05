@@ -18,6 +18,11 @@ class ViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        txtName.text = ""
+        lblName.text = ""
+    }
 
     @IBAction func btnSaveClick(_ sender: UIButton) {
         UserDefaults.standard.set(txtName.text, forKey: "name")
